@@ -60,3 +60,30 @@ exports['qbr-core']:CreateUseableItem('bpcpickaxe', function(source, item)
     local src = source
 	TriggerClientEvent('rsg_crafting:client:pickaxe', src, item.name)
 end)
+
+-- bpo axe copy
+exports['qbr-core']:CreateUseableItem('bpoaxe', function(source, item)
+    local src = source
+    local Player = exports['qbr-core']:GetPlayer(src)
+	------------------------
+	local bpo = 'bpoaxe'
+	local bpc = 'bpcaxe'
+	local name = 'Axe'
+	local repneeded = 0
+	local copycost = 1 -- cash removed from copier
+	------------------------
+	local cashBalance = Player.PlayerData.money["cash"]
+	if cashBalance >= copycost then
+		Player.Functions.RemoveMoney("cash", copycost, "copy-bpo")
+		TriggerClientEvent('rsg_crafting:client:makecopy', src, bpo, bpc, name, repneeded, copycost)
+		TriggerClientEvent('rsg_notify:client:notifiy', src, '$'..copycost..' taken for the copy')
+	else 
+		TriggerClientEvent('rsg_notify:client:notifiy', src, 'you don\'t have enough cash to do that!')
+	end
+end)
+
+-- use bpc axe
+exports['qbr-core']:CreateUseableItem('bpcaxe', function(source, item)
+    local src = source
+	TriggerClientEvent('rsg_crafting:client:axe', src, item.name)
+end)

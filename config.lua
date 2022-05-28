@@ -6,6 +6,7 @@ Config.BPOCopyTime = 30000
 Config.InvensionShop = {
 	[1] = 	{ name = "bposhovel",	price = 500, amount = 1, info = {}, type = "item", slot = 1, }, -- crafting level 0
 	[2] = 	{ name = "bpopickaxe",	price = 500, amount = 1, info = {}, type = "item", slot = 2, }, -- crafting level 0
+	[3] = 	{ name = "bpoaxe",		price = 500, amount = 1, info = {}, type = "item", slot = 3, }, -- crafting level 0
 }
 
 -- blueprint original shope locations

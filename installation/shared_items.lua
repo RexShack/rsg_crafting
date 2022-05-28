@@ -1,12 +1,15 @@
 	-- bpos
 	['bposhovel']	= {['name'] = 'bposhovel',	['label'] = 'BPO Shovel',	['weight'] = 0,		['type'] = 'item',	['image'] = 'bposhovel.png',	['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	['description'] = 'blueprint original'},
 	['bpopickaxe']	= {['name'] = 'bpopickaxe',	['label'] = 'BPO Pickaxe',	['weight'] = 0,		['type'] = 'item',	['image'] = 'bpopickaxe.png',	['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	['description'] = 'blueprint original'},
+	['bpoaxe']		= {['name'] = 'bpoaxe',		['label'] = 'BPO Axe',		['weight'] = 0,		['type'] = 'item',	['image'] = 'bpoaxe.png',		['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	['description'] = 'blueprint original'},
 	-- bpcs
 	['bpcshovel']	= {['name'] = 'bpcshovel',	['label'] = 'BPC Shovel',	['weight'] = 0,		['type'] = 'item',	['image'] = 'bpcshovel.png',	['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	['description'] = '3 x Steel 1 x Wood'},
 	['bpcpickaxe']	= {['name'] = 'bpcpickaxe',	['label'] = 'BPC Pickaxe',	['weight'] = 0,		['type'] = 'item',	['image'] = 'bpcpickaxe.png',	['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	['description'] = '3 x Steel 1 x Wood'},
+	['bpcaxe']		= {['name'] = 'bpcaxe',		['label'] = 'BPC Axe',		['weight'] = 0,		['type'] = 'item',	['image'] = 'bpcaxe.png',		['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	['description'] = '3 x Steel 1 x Wood'},
 	-- item
 	["shovel"]		= {["name"] = "shovel",		["label"] = "Shovel",		["weight"] = 100,	["type"] = "item",	["image"] = "rsg_shovel.png",	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	["description"] = "equipment for digging"},
-	["pickaxe"]		= {["name"] = "pickaxe",	["label"] = "Shovel",		["weight"] = 100,	["type"] = "item",	["image"] = "rsg_pickaxe.png",	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	["description"] = "equipment for mining"},
+	["pickaxe"]		= {["name"] = "pickaxe",	["label"] = "Pickaxe",		["weight"] = 100,	["type"] = "item",	["image"] = "rsg_pickaxe.png",	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	["description"] = "equipment for mining"},
+	["axe"]			= {["name"] = "axe",		["label"] = "Axe",			["weight"] = 100,	["type"] = "item",	["image"] = "rsg_axe.png",		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	["description"] = "equipment for chopping"},
 	-- materials
 	["copper"]		= {["name"] = "copper",		["label"] = "Copper",		["weight"] = 100,	["type"] = "item",	["image"] = "rsg_copper.png",	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	["description"] = "crafting material"},
 	["aluminum"]	= {["name"] = "aluminum",	["label"] = "Aluminum",		["weight"] = 100,	["type"] = "item",	["image"] = "rsg_aluminum.png",	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	['combinable'] = nil,	['level'] = 0,	["description"] = "crafting material"},
