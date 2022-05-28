@@ -6,12 +6,15 @@ description 'RexshackGaming : Crafting'
 
 client_script {
 	'client/client.lua',
-	'client/npc.lua',
-	'config.lua'
+	'client/npc.lua'
 }
 
 server_scripts {
    	'server/server.lua',
+}
+
+shared_scripts {
+   	'config.lua'
 }
 
 lua54 'yes'

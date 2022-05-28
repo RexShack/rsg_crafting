@@ -26,127 +26,147 @@ AddEventHandler('rsg_crafting:client:OpenInvensionShop', function()
 end)
 -- end invension shop
 
+--------------------------------------------------------------------------
+
 -- shovel craftng
 RegisterNetEvent('rsg_crafting:client:shovel')
 AddEventHandler('rsg_crafting:client:shovel', function()
-	local craftingrep = exports['qbr-core']:GetPlayerData().metadata["craftingrep"]
-	if craftingrep >= 0 then
-		exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
-			if hasItem then
-				exports['qbr-core']:Progressbar("crafting-shovel", "Crafting a Shovel..", 30000, false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = true,
-				}, {}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "bpcshovel", 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems["bpcshovel"], "remove")
-					TriggerServerEvent('QBCore:Server:AddItem', "shovel", 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems["shovel"], "add")
-					TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
-					exports['rsg_notify']:DisplayNotification('shovel crafted', 5000)
-					Wait(5000)
-					exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
-				end)
-			else
-				exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
-			end
-		end, { ['bpcshovel'] = 1, ['steel'] = 3, ['wood'] = 1 })
-	else
-		exports['rsg_notify']:DisplayNotification('not enough reputation - lvl 0 required!', 5000)
-	end
+	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+		if hasItem then
+			exports['qbr-core']:Progressbar("crafting-shovel", "Crafting a Shovel..", 30000, false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = true,
+			}, {}, {}, {}, function() -- Done
+				TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "bpcshovel", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["bpcshovel"], "remove")
+				TriggerServerEvent('QBCore:Server:AddItem', "shovel", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["shovel"], "add")
+				TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
+				exports['rsg_notify']:DisplayNotification('shovel crafted', 5000)
+				Wait(5000)
+				exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
+			end)
+		else
+			exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
+		end
+	end, { ['bpcshovel'] = 1, ['steel'] = 3, ['wood'] = 1 })
 end)
+
+--------------------------------------------------------------------------
 
 -- pickaxe craftng
 RegisterNetEvent('rsg_crafting:client:pickaxe')
 AddEventHandler('rsg_crafting:client:pickaxe', function()
-	local craftingrep = exports['qbr-core']:GetPlayerData().metadata["craftingrep"]
-	if craftingrep >= 0 then
-		exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
-			if hasItem then
-				exports['qbr-core']:Progressbar("crafting-pickaxe", "Crafting a Pickaxe..", 30000, false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = true,
-				}, {}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "bpcpickaxe", 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems["bpcpickaxe"], "remove")
-					TriggerServerEvent('QBCore:Server:AddItem', "pickaxe", 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems["pickaxe"], "add")
-					TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
-					exports['rsg_notify']:DisplayNotification('pickaxe crafted', 5000)
-					Wait(5000)
-					exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
-				end)
-			else
-				exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
-			end
-		end, { ['bpcpickaxe'] = 1, ['steel'] = 3, ['wood'] = 1 })
-	else
-		exports['rsg_notify']:DisplayNotification('not enough reputation - lvl 0 required!', 5000)
-	end
+	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+		if hasItem then
+			exports['qbr-core']:Progressbar("crafting-pickaxe", "Crafting a Pickaxe..", 30000, false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = true,
+			}, {}, {}, {}, function() -- Done
+				TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "bpcpickaxe", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["bpcpickaxe"], "remove")
+				TriggerServerEvent('QBCore:Server:AddItem', "pickaxe", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["pickaxe"], "add")
+				TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
+				exports['rsg_notify']:DisplayNotification('pickaxe crafted', 5000)
+				Wait(5000)
+				exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
+			end)
+		else
+			exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
+		end
+	end, { ['bpcpickaxe'] = 1, ['steel'] = 3, ['wood'] = 1 })
 end)
+
+--------------------------------------------------------------------------
 
 -- axe craftng
 RegisterNetEvent('rsg_crafting:client:axe')
 AddEventHandler('rsg_crafting:client:axe', function()
-	local craftingrep = exports['qbr-core']:GetPlayerData().metadata["craftingrep"]
-	if craftingrep >= 0 then
-		exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
-			if hasItem then
-				exports['qbr-core']:Progressbar("crafting-axe", "Crafting an Axe..", 30000, false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = true,
-				}, {}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "bpcaxe", 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems["bpcaxe"], "remove")
-					TriggerServerEvent('QBCore:Server:AddItem', "axe", 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems["axe"], "add")
-					TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
-					exports['rsg_notify']:DisplayNotification('axe crafted', 5000)
-					Wait(5000)
-					exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
-				end)
-			else
-				exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
-			end
-		end, { ['bpcaxe'] = 1, ['steel'] = 3, ['wood'] = 1 })
-	else
-		exports['rsg_notify']:DisplayNotification('not enough reputation - lvl 0 required!', 5000)
-	end
+	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+		if hasItem then
+			exports['qbr-core']:Progressbar("crafting-axe", "Crafting an Axe..", 30000, false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = true,
+			}, {}, {}, {}, function() -- Done
+				TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "bpcaxe", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["bpcaxe"], "remove")
+				TriggerServerEvent('QBCore:Server:AddItem', "axe", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["axe"], "add")
+				TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
+				exports['rsg_notify']:DisplayNotification('axe crafted', 5000)
+				Wait(5000)
+				exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
+			end)
+		else
+			exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
+		end
+	end, { ['bpcaxe'] = 1, ['steel'] = 3, ['wood'] = 1 })
 end)
+
+--------------------------------------------------------------------------
+
+-- weapon knife craftng
+RegisterNetEvent('rsg_crafting:client:knife')
+AddEventHandler('rsg_crafting:client:knife', function()
+	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+		if hasItem then
+			exports['qbr-core']:Progressbar("crafting-knife", "Crafting a Knife..", 30000, false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = true,
+			}, {}, {}, {}, function() -- Done
+				TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 2)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "bpcknife", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["bpcknife"], "remove")
+				TriggerServerEvent('QBCore:Server:AddItem', "weapon_melee_knife", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["weapon_melee_knife"], "add")
+				TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
+				exports['rsg_notify']:DisplayNotification('knife crafted', 5000)
+				Wait(5000)
+				exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
+			end)
+		else
+			exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
+		end
+	end, { ['bpcknife'] = 1, ['steel'] = 2, ['wood'] = 1 })
+end)
+
+--------------------------------------------------------------------------
 
 -- make copy from blueprint original
 RegisterNetEvent('rsg_crafting:client:makecopy')
-AddEventHandler('rsg_crafting:client:makecopy', function(bpo, bpc, name, repneeded, copycost)
-	local craftingrep = exports['qbr-core']:GetPlayerData().metadata["craftingrep"]
-	if craftingrep >= repneeded then
-		exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
-			if hasItem then
-				exports['qbr-core']:Progressbar('copy-'..name, 'Making a copy of '..name..'..', Config.BPOCopyTime, false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = true,
-				}, {}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:AddItem', bpc, 1)
-					TriggerEvent("inventory:client:ItemBox", sharedItems[bpc], "add")
-					exports['rsg_notify']:DisplayNotification(name..' copied', 5000)
-				end)
-			else
-				exports['rsg_notify']:DisplayNotification('you don\'t have this blueprint original', 5000)
-			end
-		end, { [bpo] = 1 })
-	else
-		exports['rsg_notify']:DisplayNotification('not enough reputation - lvl '..repneeded..' required!', 5000)
-	end
+AddEventHandler('rsg_crafting:client:makecopy', function(bpo, bpc, name, copycost)
+	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+		if hasItem then
+			exports['qbr-core']:Progressbar('copy-'..name, 'Making a copy of '..name..'..', Config.BPOCopyTime, false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = true,
+			}, {}, {}, {}, function() -- Done
+				TriggerServerEvent('QBCore:Server:AddItem', bpc, 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems[bpc], "add")
+				exports['rsg_notify']:DisplayNotification(name..' copied', 5000)
+			end)
+		else
+			exports['rsg_notify']:DisplayNotification('you don\'t have this blueprint original', 5000)
+		end
+	end, { [bpo] = 1 })
 end)
+
+--------------------------------------------------------------------------
