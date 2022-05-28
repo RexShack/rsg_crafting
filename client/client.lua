@@ -59,6 +59,39 @@ AddEventHandler('rsg_crafting:client:shovel', function()
 	end
 end)
 
+-- pickaxe craftng
+RegisterNetEvent('rsg_crafting:client:pickaxe')
+AddEventHandler('rsg_crafting:client:pickaxe', function()
+	local craftingrep = exports['qbr-core']:GetPlayerData().metadata["craftingrep"]
+	if craftingrep >= 0 then
+		exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+			if hasItem then
+				exports['qbr-core']:Progressbar("crafting-pickaxe", "Crafting a Pickaxe..", 30000, false, true, {
+					disableMovement = true,
+					disableCarMovement = false,
+					disableMouse = false,
+					disableCombat = true,
+				}, {}, {}, {}, function() -- Done
+					TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 1)
+					TriggerServerEvent('QBCore:Server:RemoveItem', "bpcpickaxe", 1)
+					TriggerEvent("inventory:client:ItemBox", sharedItems["bpcpickaxe"], "remove")
+					TriggerServerEvent('QBCore:Server:AddItem', "pickaxe", 1)
+					TriggerEvent("inventory:client:ItemBox", sharedItems["pickaxe"], "add")
+					TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
+					exports['rsg_notify']:DisplayNotification('pickaxe crafted', 5000)
+					Wait(5000)
+					exports['rsg_notify']:DisplayNotification('Crafting Reputation +1', 5000)
+				end)
+			else
+				exports['rsg_notify']:DisplayNotification('need more crafting items', 5000)
+			end
+		end, { ['bpcpickaxe'] = 1, ['steel'] = 3, ['wood'] = 1 })
+	else
+		exports['rsg_notify']:DisplayNotification('not enough reputation - lvl 0 required!', 5000)
+	end
+end)
+
 -- make copy from blueprint original
 RegisterNetEvent('rsg_crafting:client:makecopy')
 AddEventHandler('rsg_crafting:client:makecopy', function(bpo, bpc, name, repneeded, copycost)
