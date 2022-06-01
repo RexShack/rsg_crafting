@@ -28,7 +28,7 @@ end)
 
 --------------------------------------------------------------------------
 
--- shovel craftng
+-- shovel crafting
 RegisterNetEvent('rsg_crafting:client:shovel')
 AddEventHandler('rsg_crafting:client:shovel', function()
 	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
@@ -58,7 +58,7 @@ end)
 
 --------------------------------------------------------------------------
 
--- pickaxe craftng
+-- pickaxe crafting
 RegisterNetEvent('rsg_crafting:client:pickaxe')
 AddEventHandler('rsg_crafting:client:pickaxe', function()
 	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
@@ -88,7 +88,7 @@ end)
 
 --------------------------------------------------------------------------
 
--- axe craftng
+-- axe crafting
 RegisterNetEvent('rsg_crafting:client:axe')
 AddEventHandler('rsg_crafting:client:axe', function()
 	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
@@ -118,7 +118,7 @@ end)
 
 --------------------------------------------------------------------------
 
--- weapon knife craftng
+-- knife (weapon) crafting
 RegisterNetEvent('rsg_crafting:client:knife')
 AddEventHandler('rsg_crafting:client:knife', function()
 	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
@@ -144,6 +144,38 @@ AddEventHandler('rsg_crafting:client:knife', function()
 			exports['qbr-core']:Notify(9, 'need more crafting items', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 		end
 	end, { ['bpcknife'] = 1, ['steel'] = 2, ['wood'] = 1 })
+end)
+
+--------------------------------------------------------------------------
+
+-- moonshinekit crafting
+RegisterNetEvent('rsg_crafting:client:moonshinekit')
+AddEventHandler('rsg_crafting:client:moonshinekit', function()
+	exports['qbr-core']:TriggerCallback('QBCore:HasItem', function(hasItem)
+		if hasItem then
+			exports['qbr-core']:Progressbar("crafting-moonshinekit", "Crafting a MoonshineKit..", 30000, false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = true,
+			}, {}, {}, {}, function() -- Done
+				TriggerServerEvent('QBCore:Server:RemoveItem', "copper", 10)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "wood", 5)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "water", 5)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "steel", 3)
+				TriggerServerEvent('QBCore:Server:RemoveItem', "bpcmoonshinekit", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["bpcmoonshinekit"], "remove")
+				TriggerServerEvent('QBCore:Server:AddItem', "moonshinekit", 1)
+				TriggerEvent("inventory:client:ItemBox", sharedItems["moonshinekit"], "add")
+				TriggerServerEvent("QBCore:Server:SetMetaData", "craftingrep", exports['qbr-core']:GetPlayerData().metadata["craftingrep"] + 1)
+				exports['qbr-core']:Notify(9, 'MoonshineKit Crafted', 5000, 0, 'inventory_items_mp', 'generic_bundle_crafting', 'COLOR_WHITE')
+				Wait(5000)
+				exports['qbr-core']:Notify(9, 'Crafting Reputation +1', 5000, 0, 'inventory_items_mp', 'generic_bundle_crafting', 'COLOR_WHITE')
+			end)
+		else
+			exports['qbr-core']:Notify(9, 'need more crafting items', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
+		end
+	end, { ['bpcmoonshinekit'] = 1, ['copper'] = 10, ['wood'] = 5, ['water'] = 5, ['steel'] = 3 })
 end)
 
 --------------------------------------------------------------------------

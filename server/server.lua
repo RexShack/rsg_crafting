@@ -173,3 +173,44 @@ exports['qbr-core']:CreateUseableItem('bpoknife', function(source, item)
 end)
 
 --------------------------------------------------------------------------
+
+-- use bpc moonshinekit
+exports['qbr-core']:CreateUseableItem('bpcmoonshinekit', function(source, item)
+    local src = source
+	local repneeded = Config.KnifeRepRequired
+	local Player = exports['qbr-core']:GetPlayer(src)
+	local craftingRep = Player.PlayerData.metadata['craftingrep']
+	if craftingRep >= repneeded then
+		TriggerClientEvent('rsg_crafting:client:moonshinekit', src, item.name)
+	else
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
+	end
+end)
+
+-- bpo moonshinekit copy
+exports['qbr-core']:CreateUseableItem('bpomoonshinekit', function(source, item)
+    local src = source
+    local Player = exports['qbr-core']:GetPlayer(src)
+	------------------------
+	local bpo = 'bpomoonshinekit'
+	local bpc = 'bpcmoonshinekit'
+	local name = 'MoonshineKit'
+	local repneeded = Config.MoonshineKitRepRequired
+	local copycost = Config.MoonshineKitCopyCost
+	------------------------
+	local cashBalance = Player.PlayerData.money["cash"]
+	local craftingRep = Player.PlayerData.metadata['craftingrep']
+	if craftingRep >= repneeded then
+		if cashBalance >= copycost then
+			Player.Functions.RemoveMoney("cash", copycost, "copy-bpo")
+			TriggerClientEvent('rsg_crafting:client:makecopy', src, bpo, bpc, name, copycost)
+			TriggerClientEvent('QBCore:Notify', src, 9, '$'..copycost..' taken for the copy', 5000, 0, 'hud_textures', 'check', 'COLOR_WHITE')
+		else 
+			TriggerClientEvent('QBCore:Notify', src, 9, 'you don\'t have enough cash to do that!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
+		end
+	else
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
+	end
+end)
+
+--------------------------------------------------------------------------
