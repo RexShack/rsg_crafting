@@ -5,7 +5,7 @@ exports['qbr-core']:AddCommand('craftingrep', 'get your crafting reputation', {}
     local src = source
 	local Player = exports['qbr-core']:GetPlayer(src)
     local craftingRep = Player.PlayerData.metadata['craftingrep']
-	TriggerClientEvent('rsg_notify:client:bottom_notifiy', src, 'Your Crafting Rep is: '..craftingRep, 5000)
+	TriggerClientEvent('QBCore:Notify', src, 9, 'Your Crafting Rep is: '..craftingRep, 5000, 0, 'hud_textures', 'check', 'COLOR_WHITE')
 end)
 
 --------------------------------------------------------------------------
@@ -19,7 +19,7 @@ exports['qbr-core']:CreateUseableItem('bpcshovel', function(source, item)
 	if craftingRep >= repneeded then
 		TriggerClientEvent('rsg_crafting:client:shovel', src, item.name)
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -40,12 +40,12 @@ exports['qbr-core']:CreateUseableItem('bposhovel', function(source, item)
 		if cashBalance >= copycost then
 			Player.Functions.RemoveMoney("cash", copycost, "copy-bpo")
 			TriggerClientEvent('rsg_crafting:client:makecopy', src, bpo, bpc, name, copycost)
-			TriggerClientEvent('rsg_notify:client:notifiy', src, '$'..copycost..' taken for the copy')
+			TriggerClientEvent('QBCore:Notify', src, 9, '$'..copycost..' taken for the copy', 5000, 0, 'hud_textures', 'check', 'COLOR_WHITE')
 		else 
-			TriggerClientEvent('rsg_notify:client:notifiy', src, 'you don\'t have enough cash to do that!')
+			TriggerClientEvent('QBCore:Notify', src, 9, 'you don\'t have enough cash to do that!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 		end
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -60,7 +60,7 @@ exports['qbr-core']:CreateUseableItem('bpcpickaxe', function(source, item)
 	if craftingRep >= repneeded then
 		TriggerClientEvent('rsg_crafting:client:pickaxe', src, item.name)
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -81,12 +81,12 @@ exports['qbr-core']:CreateUseableItem('bpopickaxe', function(source, item)
 		if cashBalance >= copycost then
 			Player.Functions.RemoveMoney("cash", copycost, "copy-bpo")
 			TriggerClientEvent('rsg_crafting:client:makecopy', src, bpo, bpc, name, copycost)
-			TriggerClientEvent('rsg_notify:client:notifiy', src, '$'..copycost..' taken for the copy')
+			TriggerClientEvent('QBCore:Notify', src, 9, '$'..copycost..' taken for the copy', 5000, 0, 'hud_textures', 'check', 'COLOR_WHITE')
 		else 
-			TriggerClientEvent('rsg_notify:client:notifiy', src, 'you don\'t have enough cash to do that!')
+			TriggerClientEvent('QBCore:Notify', src, 9, 'you don\'t have enough cash to do that!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 		end
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -101,7 +101,7 @@ exports['qbr-core']:CreateUseableItem('bpcaxe', function(source, item)
 	if craftingRep >= repneeded then
 		TriggerClientEvent('rsg_crafting:client:axe', src, item.name)
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -122,12 +122,12 @@ exports['qbr-core']:CreateUseableItem('bpoaxe', function(source, item)
 		if cashBalance >= copycost then
 			Player.Functions.RemoveMoney("cash", copycost, "copy-bpo")
 			TriggerClientEvent('rsg_crafting:client:makecopy', src, bpo, bpc, name, copycost)
-			TriggerClientEvent('rsg_notify:client:notifiy', src, '$'..copycost..' taken for the copy')
+			TriggerClientEvent('QBCore:Notify', src, 9, '$'..copycost..' taken for the copy', 5000, 0, 'hud_textures', 'check', 'COLOR_WHITE')
 		else 
-			TriggerClientEvent('rsg_notify:client:notifiy', src, 'you don\'t have enough cash to do that!')
+			TriggerClientEvent('QBCore:Notify', src, 9, 'you don\'t have enough cash to do that!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 		end
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -142,7 +142,7 @@ exports['qbr-core']:CreateUseableItem('bpcknife', function(source, item)
 	if craftingRep >= repneeded then
 		TriggerClientEvent('rsg_crafting:client:knife', src, item.name)
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 
@@ -163,12 +163,12 @@ exports['qbr-core']:CreateUseableItem('bpoknife', function(source, item)
 		if cashBalance >= copycost then
 			Player.Functions.RemoveMoney("cash", copycost, "copy-bpo")
 			TriggerClientEvent('rsg_crafting:client:makecopy', src, bpo, bpc, name, copycost)
-			TriggerClientEvent('rsg_notify:client:notifiy', src, '$'..copycost..' taken for the copy')
+			TriggerClientEvent('QBCore:Notify', src, 9, '$'..copycost..' taken for the copy', 5000, 0, 'hud_textures', 'check', 'COLOR_WHITE')
 		else 
-			TriggerClientEvent('rsg_notify:client:notifiy', src, 'you don\'t have enough cash to do that!')
+			TriggerClientEvent('QBCore:Notify', src, 9, 'you don\'t have enough cash to do that!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 		end
 	else
-		TriggerClientEvent('rsg_notify:client:notifiy', src, 'not enough reputation '..repneeded..' required!')
+		TriggerClientEvent('QBCore:Notify', src, 9, 'not enough reputation '..repneeded..' required!', 5000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
 	end
 end)
 

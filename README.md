@@ -8,7 +8,6 @@
 
 # Dependancies
 - qbr-core : https://github.com/qbcore-redm-framework
-- rsg_notify : https://github.com/RexShack/rsg_notify
 
 # Installation
 - ensure that the dependancies are added and started
@@ -17,7 +16,7 @@
 - add images to your "\qbr-inventory\html\images"
 
 # Starting the resource
-- add the following to your server.cfg file : ensure rsg_crafting
+- add the following to your server.cfg file : ensure rsg_rsg_crafting
 
 # Note
 - more crafting items will be added over time
